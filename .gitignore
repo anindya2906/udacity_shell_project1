@@ -105,5 +105,4 @@ dist
 
 
 # Keep thumb folder but ignore resized images
-!assets/thumb
-assets/thumb/*.*
+assets/thumb/*.jpg
