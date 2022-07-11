@@ -35,11 +35,11 @@ const query_validations = [
 
     // Height
     query('height').exists({checkNull: true, checkFalsy:true}).withMessage("Image height not specified").bail()
-    .isInt({ min: 1 }).withMessage("Height should be a positive integer and greater than 0"),
+    .isInt({ min: 1 }).withMessage("Height should be a positive integer"),
 
     // Width
     query('width').exists({checkNull: true, checkFalsy:true}).withMessage("Image width not specified").bail()
-    .isInt({ min: 1 }).withMessage("Width should be a positive integer and greater than 0"),
+    .isInt({ min: 1 }).withMessage("Width should be a positive integer"),
 ];
 
 
