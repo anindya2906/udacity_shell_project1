@@ -8,8 +8,10 @@ import constants from '../constants';
 // Validator middleware
 const validate = (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        res.json({"message": errors.array()});
+    if(!errors.isEmpty()) {
+        const err_msgs: string[] = [];
+        errors.array().map((err) => { err_msgs.push(err.msg) });
+        res.status(400).json({ error: err_msgs });
     }
     else{
         next();
@@ -28,7 +30,7 @@ const fileNotFound: CustomValidator = async (filename: string) => {
 // Query parameter validations
 const query_validations = [
     // Filename
-    query('filename').exists({checkNull: true, checkFalsy:true}).withMessage("Image filename not specified !").bail()
+    query('filename').exists({checkNull: true, checkFalsy:true}).withMessage("Image filename not specified").bail()
     .custom(fileNotFound),
 
     // Height

@@ -10,7 +10,7 @@ const cache = new NodeCache({ stdTTL: 0});
 const sendFromCache = (req: Request, res: Response, next: NextFunction) => {
     const originalUrl: string = req.originalUrl;
     if(cache.has(originalUrl)){
-        res.sendFile((cache.get(originalUrl) as string), { root: constants.root_path });
+        res.status(200).sendFile((cache.get(originalUrl) as string), { root: constants.root_path });
     }
     else {
         next();

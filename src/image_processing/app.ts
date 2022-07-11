@@ -17,10 +17,10 @@ router.get("/image", middlewares, async (req: Request, res: Response) => {
     try{
         const outImage = await resize_image(filename, width, height);
         addToCache(req.originalUrl, outImage);
-        res.sendFile(outImage, { root: constants.root_path});
+        res.status(200).sendFile(outImage, { root: constants.root_path});
     }
     catch (error) {
-        res.send(error)
+        res.status(500).json({ error: error });
     }
 });
 
