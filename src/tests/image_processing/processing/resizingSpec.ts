@@ -13,7 +13,7 @@ describe('Image Resizing Test', () => {
     try {
       const stats = await fsPromises.stat(outFileExpect);
       if (stats) {
-        await fsPromises.unlink(outFileExpect);
+        await fsPromises.rm(outFileExpect);
       }
     } catch {}
   });
