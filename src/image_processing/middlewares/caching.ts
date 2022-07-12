@@ -7,7 +7,11 @@ import constants from '../constants';
 const cache = new NodeCache({ stdTTL: 0 });
 
 // Middleware to send from cache
-const sendFromCache = (req: Request, res: Response, next: NextFunction) => {
+const sendFromCache = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void => {
   const originalUrl: string = req.originalUrl;
   if (cache.has(originalUrl)) {
     res.status(200).sendFile(cache.get(originalUrl) as string, {
@@ -19,7 +23,7 @@ const sendFromCache = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // Helper function to add values to cache
-const addToCache = (key: string, value: string) => {
+const addToCache = (key: string, value: string): void => {
   cache.set(key, value);
 };
 

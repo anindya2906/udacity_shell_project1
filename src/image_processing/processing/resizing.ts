@@ -8,7 +8,7 @@ const resizeImage = async (
   imageFileName: string,
   width: number,
   height: number
-) => {
+): Promise<string> => {
   const f = path.parse(imageFileName);
   const outputFileName = `${f.name}_${width}_${height}${f.ext}`;
   const inputImageFile = path.join(constants.fullImagePath, imageFileName);

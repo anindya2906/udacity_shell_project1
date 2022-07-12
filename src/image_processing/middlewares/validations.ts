@@ -1,12 +1,12 @@
+import fs, { promises as fsPromises } from 'fs';
 import path from 'path';
-import { promises as fsPromises } from 'fs';
 import { NextFunction, Request, Response } from 'express';
 import { query, CustomValidator, validationResult } from 'express-validator';
 
 import constants from '../constants';
 
 // Validator middleware
-const validate = (req: Request, res: Response, next: NextFunction) => {
+const validate = (req: Request, res: Response, next: NextFunction): void => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const errMsgs: string[] = [];
@@ -20,7 +20,9 @@ const validate = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // custom validator to check if the file exists
-const fileNotFound: CustomValidator = async (filename: string) => {
+const fileNotFound: CustomValidator = async (
+  filename: string
+): Promise<fs.Stats> => {
   try {
     return await fsPromises.stat(path.join(constants.fullImagePath, filename));
   } catch {
