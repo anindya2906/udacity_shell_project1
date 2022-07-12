@@ -20,6 +20,7 @@
         "jasmine"
     ],
     "rules": {
-        "prettier/prettier": 2
+        "prettier/prettier": 2,
+        "jasmine/new-line-before-expect": 0
     }
 }
