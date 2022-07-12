@@ -81,3 +81,13 @@ In case of the user provide invalid url parameters the application will return w
 
 > If any of height or width is not a number or not positive integer it will return **_Height/Width should be a positive integer_**
 
+
+## Attribution
+* https://blog.logrocket.com/using-prettier-eslint-automate-formatting-fixing-javascript/
+* https://dev.to/nedsoft/a-clean-approach-to-using-express-validator-8go
+* https://github.com/eslint/eslint
+* https://github.com/prettier/prettier
+* https://github.com/prettier/eslint-config-prettier
+* https://www.npmjs.com/package/eslint-plugin-prettier
+* https://github.com/tlvince/eslint-plugin-jasmine/issues/56
+* https://www.npmjs.com/package/eslint-plugin-jasmine
